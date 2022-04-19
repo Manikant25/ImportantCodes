@@ -149,6 +149,20 @@ FROM table1
 INNER JOIN table2
 ON table1.matching_column = table2.matching_column;`
 
+`REST ON NET`
+
+## Misc
+
+1. The `IN` operator allows you to specify multiple values in a WHERE clause.
+
+The IN operator is a shorthand for multiple OR conditions.
+
+2. [SUB_QUERIES](https://www.javatpoint.com/dbms-sql-sub-queries)
+
+3. [Views](https://www.javatpoint.com/dbms-sql-view)
+
+
+
 
 
 
