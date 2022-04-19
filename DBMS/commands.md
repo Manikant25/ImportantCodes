@@ -56,7 +56,7 @@ eg -
 - PRIMARY KEY - A combination of a NOT NULL and UNIQUE. Uniquely identifies each row in a table
   
 - FOREIGN KEY - Prevents actions that would destroy links between tables
-- CHECK - Ensures that the values in a column satisfies a specific condition
+- CHECK - Ensures that the values in a column satisfies a specific condition, The CHECK constraint is used to limit the value range that can be placed in a column.
 - DEFAULT - Sets a default value for a column if no value is specified
 - CREATE INDEX - Used to create and retrieve data from the database very quickly
 - create table person (id int not null);
@@ -86,7 +86,26 @@ The `FOREIGN KEY` constraint is used to prevent actions that would destroy links
 
 A `FOREIGN KEY` is a field (or collection of fields) in one table, that refers to the `PRIMARY KEY` in another table.
 
-The table with the foreign key is called the child table, and the table with the primary key is called the referenced or parent table.
+The table with the foreign key is called the `child table`, and the table with the primary key is called the `referenced` or `parent table`.
+
+- create table orders ( OrderId int NOT NULL , PersonID int , Foreign Key (PersonID) References Persons(PersonID) ); //Keep in mind PersonID should be Primary Key in Persons Table.
+
+- ALTER TABLE Persons
+ADD CHECK (Age>=18);
+
+-CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    City varchar(255),
+    CONSTRAINT CHK_Person CHECK (Age>=18 AND City='Sandnes')
+);
+
+- create table persons (id int Primary key ,age int, constraint check_p check (age>0 and age<100)) ;
+- alter table person2 add check (age>0);
+
+
 
 
 
