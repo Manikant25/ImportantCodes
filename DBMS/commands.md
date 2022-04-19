@@ -1,5 +1,7 @@
 # DBMS Commands
 
+[**GO DIRECTLY COPY**](https://docs.google.com/document/d/1f4thlZTo8w-6DyQJ-KChLDnKdpVvWHFseYginBm9Af8/edit?usp=sharing)
+
 ## 1.  DDL Commands (Data Defination Language)
 
 - CREATE DATABASE SRM
@@ -104,6 +106,53 @@ ADD CHECK (Age>=18);
 
 - create table persons (id int Primary key ,age int, constraint check_p check (age>0 and age<100)) ;
 - alter table person2 add check (age>0);
+-   create table person (id int default 1);
+-   ALTER TABLE Persons
+- ALTER City SET DEFAULT 'Sandnes';
+- ALTER TABLE Persons
+  ALTER City DROP DEFAULT;
+
+  ### Agregate Functions 
+
+  1. select **max**(marks) from class;
+  2. select **min**(marks) from class;
+  3. select **avg**(marks) from class;
+  4. select **sum**(marks) from class;
+  5. select **count**(marks) from class;
+
+### LIKE 
+
+WHERE CustomerName LIKE 'a%' ->	Finds any values that start with "a"
+
+WHERE CustomerName LIKE '%a' ->	Finds any values that end with "a"
+
+WHERE CustomerName LIKE '%or%' -> Finds any values that have "or" in any position
+
+WHERE CustomerName LIKE '_r%' ->	Finds any values that have "r" in the second position
+
+WHERE CustomerName LIKE 'a_%' ->Finds any values that start with "a" and are at least 2 characters in length
+
+WHERE CustomerName LIKE 'a__%' ->	Finds any values that start with "a" and are at least 3 characters in length
+
+WHERE ContactName LIKE 'a%o' ->	Finds any values that start with "a" and ends with "o"
+
+eg - `SELECT * FROM Customers
+WHERE CustomerName LIKE 'a%';`
+
+# IMP Topics
+
+### Joins ( For more help look at this [Link](https://www.w3schools.com/sql/sql_join.asp))
+
+1. Inner Joins
+   `SELECT table1.column1,table1.column2,table2.column1,....
+FROM table1 
+INNER JOIN table2
+ON table1.matching_column = table2.matching_column;`
+
+
+
+
+
 
 
 
