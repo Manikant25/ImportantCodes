@@ -21,4 +21,17 @@ eg -
 
 **ALTER TABLE - CHANGE DATATYPE OF COLUMN**
 - alter table example Modify column id varchar(10);
-`
+
+**DROP COLUMN**
+- alter table example drop SEX;
+  
+**RENAME A COLUMN**
+-alter table example rename column sex to gender;
+
+## 2. DML Commands (Data Manipulation Language)
+   
+- **insert** into example values (1,"XYZ","1919-12-12","MALE");
+-  **select** * from example;
+-  **delete** from example where id =2;
+
+
