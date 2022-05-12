@@ -23,13 +23,18 @@ def bfs(visited,graph,node):
     if neighbour not in visited: 
         visited.append(neighbour) 
         queue.append(neighbour) 
-avisit=set() 
+avisit=set()
+
+
+
 def dfs(avisit,graph,node): 
  if node not in avisit: 
   print(node,end=" ") 
   avisit.add(node) 
   for neighbour in graph[node]: 
     dfs(avisit,graph,neighbour)
+
+
 print("Breadth first search") 
 bfs(visited,graph,'S') 
 print("\nDepth first search") 

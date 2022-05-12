@@ -1,0 +1,54 @@
+# importing utility modules
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error
+from sklearn.preprocessing import LabelEncoder
+from keras.utils import np_utils
+
+
+
+# importing machine learning models for prediction
+from sklearn.ensemble import RandomForestRegressor
+import xgboost as xgb
+from sklearn.linear_model import LinearRegression
+
+# loading IRIS dataset from github
+df= pd.read_csv("https://raw.githubusercontent.com/venky14/Machine-Learning-with-Iris-Dataset/master/Iris.csv")
+df=df.drop('Id', axis=1)
+
+X= df.iloc[:, 0:4]
+y=df.iloc[:, 4:5]
+# print(X.sample(5))
+# print(y.sample(5))
+
+
+# initializing all the model objects with default parameters
+model_1 = LinearRegression()
+model_2 = xgb.XGBRegressor()
+model_3 = RandomForestRegressor()
+
+# doing encoding for Labels 
+encoder = LabelEncoder()
+encoder.fit(y)
+encoded_Y = encoder.transform(y)
+# dummy_y = np_utils.to_categorical(encoded_Y)
+
+# Splitting between train data into training and validation dataset
+X_train, X_test, y_train, y_test = train_test_split(
+X, encoded_Y, test_size=0.20)
+
+# training all the model on the training dataset
+model_1.fit(X_train, y_train)
+model_2.fit(X_train, y_train)
+model_3.fit(X_train, y_train)
+
+# predicting the output on the validation dataset
+pred_1 = model_1.predict(X_test)
+pred_2 = model_2.predict(X_test)
+pred_3 = model_3.predict(X_test)
+
+# final prediction after averaging on the prediction of all 3 models
+pred_final = (pred_1+pred_2+pred_3)/3.0
+
+# printing the root mean squared error between real value and predicted value
+print('\n\n\n',mean_squared_error(y_test, pred_final), '\n\n\n')

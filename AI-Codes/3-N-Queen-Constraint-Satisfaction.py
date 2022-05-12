@@ -39,9 +39,9 @@ def solveNQUtil(board, col):
 
 
 def solveNQ():
-    board = [[0 for i in range(N)] for j in range(N)]
+    board = [[0 for _ in range(N)] for j in range(N)]
 
-    if solveNQUtil(board, 0) == False:
+    if not solveNQUtil(board, 0):
         print("Solution does not exist")
         return False
     printSolution(board)
