@@ -1,0 +1,52 @@
+#include<iostream>
+#include<string>
+using namespace std;
+int main()
+{
+string exp;
+cout<<"Enter the expression:-"; cin>>exp;
+int j=0,k=0; char q;
+for(int i=exp.length()-1;i>1;i--)
+{
+if(islower(exp[i]) || (exp[i]>=48 && exp[i]<=57))
+{
+cout<<j<<"->"<<exp[i]<<endl; j++;
+}
+}
+for(int i=exp.length()-1;i>1;i--)
+{
+if(!(islower(exp[i])|| (exp[i]>=48 && exp[i]<=57)))
+{
+cout<<j<<"->"<<exp[i]<<k<<k+1<<endl; j++;
+k+=2;
+}
+}
+cout<<j<<"->"<<exp[0]<<endl; j++;
+cout<<j<<"->"<<exp[1]<<j-1<<j-2<<endl; return 0;
+}
+
+/*Enter the expression:-a=b+c-5
+0->5
+1->c
+2->b
+3->-01
+4->+23
+5->a
+6->=54
+
+The Directed Acyclic Graph (DAG) is used to represent the structure of basic blocks, to visualize the flow of values between basic blocks, and to provide optimization techniques in the basic block. To apply an optimization technique to a basic block, a DAG is a three-address code that is generated as the result of an intermediate code generation.
+
+Directed acyclic graphs are a type of data structure and they are used to apply transformations to basic blocks.
+The Directed Acyclic Graph (DAG) facilitates the transformation of basic blocks.
+DAG is an efficient method for identifying common sub-expressions.
+It demonstrates how the statement’s computed value is used in subsequent statements.
+
+Directed Acyclic Graph Characteristics :
+A Directed Acyclic Graph for Basic Block is a directed acyclic graph with the following labels on nodes.
+
+The graph’s leaves each have a unique identifier, which can be variable names or constants.
+The interior nodes of the graph are labelled with an operator symbol.
+In addition, nodes are given a string of identifiers to use as labels for storing the computed value.
+Directed Acyclic Graphs have their own definitions for transitive closure and transitive reduction.
+Directed Acyclic Graphs have topological orderings defined.
+*/
